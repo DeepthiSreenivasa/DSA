@@ -1,6 +1,13 @@
-/**
- * @param {number} x
- * @return {number}
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Math.abs => convert every number to positive number
+ * Math.floor=>Round the number to lowest
+ * Math.ciel=> Round the number to highest
+ * Math.round=>Round the number to lower(when <=0.4) or higher(when >=0.5)  
+ * limit condition added to return zero when crosses the expected limit...Math.pow(2,31)
  */
 var reverse = function(num) {
     
