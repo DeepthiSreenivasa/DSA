@@ -1,0 +1,30 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : 2 pointer approach - 1 pointer to hold the position where we need to
+ *           replace the unique element another pointer that runs through the array to find the unique element
+ * What is a non-decreasing array - An array which contains a element which can not necessarinly have increasing element rather can have equal but not
+ * decreasing element
+ * 
+ */
+
+
+
+var removeDuplicates = function (arr) {
+   
+    const n = arr.length;
+    let j = 1;
+    let i = 0;
+
+    while (j <= n) {
+        if (arr[i] == arr[j]) {
+            j++;
+        } else {
+            arr[i + 1] = arr[j];
+            i++;
+        }
+    }
+    return i;
+};
