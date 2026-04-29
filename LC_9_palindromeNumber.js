@@ -1,7 +1,11 @@
-/**
- * @param {number} x
- * @return {boolean}
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * Lin2 25: If else can be jus replaced with this rev == originalNum as end of the day even that would either return true or fasle
  */
+
+
 var isPalindrome = function(num) {
     
     let originalNum = num;
