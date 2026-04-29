@@ -1,0 +1,29 @@
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(num) {
+    
+    let rev=0;
+    let lastDigit;
+    let neg = false;
+
+    if (num < 0) {
+        num = Math.abs(num)
+        neg = true;
+    }
+
+    while (num > 0) {
+
+        lastDigit = num % 10;
+        rev = (10*rev) + lastDigit;
+        num = Math.floor(num/10)
+        
+    }
+
+    let limit = Math.pow(2,31);
+
+    if(rev < -limit || rev > limit) return 0;
+    
+    return neg == true ? -rev :rev
+};
