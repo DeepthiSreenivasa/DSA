@@ -1,0 +1,25 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : use xor operation XOR emits the unique number when XOR'd with set of numbers which contains duplicated
+ * 
+ */
+
+function singleNumber(arr) {
+
+    let unique;
+
+    for (var i = 0; i < arr.length; i++){
+
+        unique = unique ^ arr[i];
+        
+    }
+
+    return unique
+   
+}
+
+const result = singleNumber([3,1,5,4,4,6,1,5,3])
+console.log(result)
