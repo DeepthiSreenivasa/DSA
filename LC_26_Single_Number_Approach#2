@@ -4,29 +4,40 @@
  * Notes :
  * 
  * Startegy : Create an obj to hold the count of each occurence in the array and later return the key of the object which contains value 1
+ * Catch : For Loop (read below)
  * 
  */
 
-function singleNumber(arr) {
+var singleNumber = function (nums) {
 
     let obj = {};
+    let storeKey =[] ;
 
-    for (var i = 0; i < arr.length; i++){
-        if (obj[arr[i]]) {
-            obj[arr[i]] = obj[arr[i]] + 1;
-        } else {
-            obj[arr[i]] = 1
+    for(var i=0;i<nums.length;i++){
+        if(obj[nums[i]]){
+            obj[nums[i]] = obj[nums[i]] + 1;
+        }else{
+            //console.log("Obj")
+            obj[nums[i]] = 1;
+            //console.log("Obj::",obj)
         }
     }
-   
 
-    for (var i = 0; i < arr.length; i++){
-        if (obj[i] == 1) {
-            return i
+    console.log(obj)
+    
+    storeKey = Object.keys(obj);
+
+    for(var i=0;i<=storeKey.length;i++){ 
+        /* its important to not have repeatitive actions inside a for loop like gettinf Object.keys 
+        * inside a big array or calculating lengths of the array, but rather assign it to and   
+        * variable       and       use it, this way the for loop will not calulate it every now and 
+        * the but just once before runinng for loop. This will not break a test case with large number   of inputs*/
+
+        let key = storeKey[i]
+
+        if(obj[key]==1){
+            return Number(key);
         }
-    }
-   
-}
 
-const result = singleNumber([3,1,5,4,4,6,1,5,3])
-console.log(result)
+    }
+};
