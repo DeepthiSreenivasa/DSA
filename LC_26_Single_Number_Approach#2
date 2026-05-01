@@ -1,0 +1,32 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Create an obj to hold the count of each occurence in the array and later return the key of the object which contains value 1
+ * 
+ */
+
+function singleNumber(arr) {
+
+    let obj = {};
+
+    for (var i = 0; i < arr.length; i++){
+        if (obj[arr[i]]) {
+            obj[arr[i]] = obj[arr[i]] + 1;
+        } else {
+            obj[arr[i]] = 1
+        }
+    }
+   
+
+    for (var i = 0; i < arr.length; i++){
+        if (obj[i] == 1) {
+            return i
+        }
+    }
+   
+}
+
+const result = singleNumber([3,1,5,4,4,6,1,5,3])
+console.log(result)
