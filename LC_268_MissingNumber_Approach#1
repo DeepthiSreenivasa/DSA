@@ -1,0 +1,24 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes : 
+ * 
+ * Startegy : Sort the array and check if the index and the array items are the same
+ * Catch : JS sort keep in mind doesnt sort numerics as direct as we think so cant use arr.sort rather arr.sort((a,b)=>a-b)
+ * 
+ */
+
+function missingNumber(arr) {
+
+    const sortedArr = arr.sort();
+
+    for (var i = 0; i < sortedArr.length; i++){
+        if (arr[i] != i) {
+            return i;
+        }
+    }
+   
+}
+
+const result = missingNumber([0,2,3,5,1,4,7,9,8])
+console.log(result)
