@@ -1,0 +1,22 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Base Case (until numbers are greater than zero) + Recursion Case (call the function again with one number less)
+ */
+
+function sumOfNumbers(num) {
+
+//5+4+3+2+1+0
+
+    if (num == 0) return 0;
+   
+   return num + sumOfNumbers(num-1)
+
+   
+}
+
+const res = sumOfNumbers(5);
+console.log("Res::", res);
+
