@@ -1,0 +1,33 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : compare 1st element with every other element and if you find an element lesser than this, then swap with the first 
+  element
+ */
+
+
+function selectionSort(a) {
+
+    let temp;
+
+    for (var i = 0; i < a.length; i++) {
+        for (var j = i; j < a.length; j++) {
+            if (a[i] < a[j + 1]) {
+                temp = a[i];
+                a[i] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+
+    }
+    return a;
+}
+
+const result = selectionSort([3, 2, 1,0,-10, 4]);
+
+console.log("Result::", result);
+
+
+
