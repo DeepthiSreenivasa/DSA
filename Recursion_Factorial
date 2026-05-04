@@ -1,0 +1,26 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Base case - Find factorial of the number  upto number is positive,Recursive Case - pass the number to the function 
+ * and by decreasing one number
+ * 
+ */
+
+
+function factorial(n) {
+
+    if (n == 0) {
+        return 1
+    }
+
+
+    return n * factorial(n - 1);
+
+}
+
+
+const result = factorial(5)
+
+console.log("Result::", result);
