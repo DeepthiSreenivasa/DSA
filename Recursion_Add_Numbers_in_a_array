@@ -1,0 +1,25 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Base Case recursion (when length of the array is greater than 0) + Recursion Case(increament the pointer by 1)
+ */
+
+function sumOfNumbersInArray(a,i) {
+
+    
+
+    if (i >= a.length) return 0;
+
+    
+    return a[i] + sumOfNumbersInArray(a,i+1)
+
+   
+}
+
+
+const res = sumOfNumbersInArray([1, 2, 3,4,5], 0);
+console.log("res::", res);
+
+
