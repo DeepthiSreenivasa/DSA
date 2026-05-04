@@ -1,0 +1,41 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy :  Compare consecutive elements and keeping swaping this will result in plaing the biggest number at the end of the arr
+ *             So you can ignore the last element of the array and compare with the last element
+ * 
+ */
+
+
+function bubbleSort(a) {
+
+    let temp;
+    let n = a.length;
+    let swapped;
+
+    for (var i = 0; i < n; i++){
+        swapped = false;
+        for (var j = 0; j < n - i; j++){
+            if (a[j] <= a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+                swapped = true
+            }
+        }
+        if (!swapped) {
+            break
+        }
+       
+    }
+    return a;
+}
+
+const result = bubbleSort([5,2,3,1]);
+
+console.log("Result::", result);
+
+
+
