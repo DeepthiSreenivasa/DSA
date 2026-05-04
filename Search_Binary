@@ -1,0 +1,43 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Divide the array into 2 and continuosly check if mid element is the key also move the left and right pointer either 
+ * after mid or before mid comparing the value of mid to the pointer
+ *
+ */
+
+
+function binarySearch(arr, key) {
+
+
+    
+    let l = 0;
+    let r = arr.length - 1;
+
+
+    while (l <= r) {
+
+        let m = Math.floor((l + r) / 2);
+
+        if (arr[m] == key) {
+            return m;
+        }
+        if (key <= arr[m]) {
+            r = m - 1;
+        } else {
+            l = m + 1;
+        }
+    }
+
+    return -1;
+
+}
+
+const result = binarySearch([[-1, 0, 3, 5, 9, 12]], 9);
+
+console.log("Result::", result);
+
+
+
