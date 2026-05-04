@@ -1,0 +1,32 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Note : A Little tricky good to dry run and understand with this examplet [3,4,5,7,1,2]
+ * 
+ * Startegy : Compare a element if it is lesser than the previous element if it is lesser then move the previous element to next position
+ *
+ */
+
+
+function insertionSort(a) {
+    for (let i = 1; i < a.length; i++) {
+        let cur = a[i];
+        let prev = i - 1;
+
+        while (prev >= 0 && a[prev] > cur) {
+            a[prev + 1] = a[prev]; // shift right
+            prev--;
+        }
+
+        a[prev + 1] = cur;
+    }
+
+    return a;
+}
+
+const result = insertionSort([4,7,3,5,1,2]);
+
+console.log("Result::", result);
+
+
+
