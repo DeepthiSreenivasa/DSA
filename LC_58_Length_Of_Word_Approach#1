@@ -1,0 +1,29 @@
+/**
+Start counting from the last word
+
+**/
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function (sentence) {
+
+    let n = sentence.length;
+    let i = n - 1;
+    let count=0;
+
+    while(i>=0 && sentence[i] == " "){
+        i--
+    }
+
+    while (i >=0 && sentence[i] != " ") {
+        count++;
+        i--;
+    }
+
+    return count;
+
+}
+
+
