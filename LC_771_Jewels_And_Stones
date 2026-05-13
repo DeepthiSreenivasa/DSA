@@ -1,0 +1,27 @@
+/***
+Strategy : Similar to counting characters
+***/
+
+
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+var numJewelsInStones = function (jewels, stones) {
+
+    let n = jewels.length;
+    let m = stones.length;
+    let count = 0;
+
+    for (var i = 0; i < n; i++) {
+        for(var j=0;j<m;j++){
+            if(jewels[i]===stones[j]){
+                count++;
+            }
+        }
+    }
+
+    return count;
+
+};
