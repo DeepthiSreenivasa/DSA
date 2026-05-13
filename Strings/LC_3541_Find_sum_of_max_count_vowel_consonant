@@ -1,0 +1,46 @@
+/
+*
+****STRATEGY - Use {} for counters****
+*
+/
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var maxFreqSum = function (s) {
+
+    let obj = {};
+    
+    let j = 0;
+
+
+    while (j < s.length) {
+
+        if (obj[s[j]]) {
+            obj[s[j]]++;
+        } else {
+            obj[s[j]] = 1;
+        }
+        j++;
+    }
+
+    console.log("Obj::", obj)
+
+    let maxVowels = 0;
+    let maxConsonants = 0;
+
+    for (var i = 0; i < s.length; i++) {
+
+        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i'
+            || s[i] == 'o' || s[i] == 'u') {
+            maxVowels = Math.max(maxVowels, obj[s[i]])
+        } else {
+            maxConsonants = Math.max(maxConsonants, obj[s[i]])
+        }
+
+    }
+
+    return maxVowels + maxConsonants;
+
+};
