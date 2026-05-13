@@ -1,0 +1,41 @@
+/**
+Strategy - use an dummy node in the begining and swap two nodes at a time, and repeat this procedure till end of the ll
+*/
+
+
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function(head) {
+
+    if (!head || !head.next) return head;
+
+    let dummy = new ListNode(0, head);
+    let prev = dummy;
+    let cur = head;
+    let next = head.next;
+
+    while (cur && next) {
+
+        
+        cur.next = next.next;
+        next.next = cur;
+        prev.next = next;
+
+        prev = cur;
+        cur = cur.next;
+        next = cur && cur.next;
+    }
+
+    return dummy.next;
+};
