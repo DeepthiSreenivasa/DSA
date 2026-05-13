@@ -1,0 +1,27 @@
+/**
+The strategy is to use Set and check if every characted in the stone is present in jewel or not
+***/
+
+/**
+ * @param {string} jewels
+ * @param {string} stones
+ * @return {number}
+ */
+var numJewelsInStones = function(jewels, stones) {
+    
+    let set = new Set([...jewels]);
+
+    let j=0;
+    let count = 0;
+
+    while(j < stones.length){
+        if(set.has(stones[j])){
+           
+            count++;
+        }
+        j++;
+    }
+
+    return count;
+
+};
