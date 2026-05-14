@@ -1,0 +1,32 @@
+/**
+Strategy use a counter and do +1 and -1 and check if it is 0 in the end or use two counters as counter1 and counter2 and
+check if they both are equal
+**/
+
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var balancedStringSplit = function(s) {
+
+
+    let count = 0;
+    let subStringCount = 0;
+
+    for(var i=0;i<s.length;i++){
+        if(s[i]==="R"){
+            count++;
+        }else{
+            count--;
+        }
+
+        if(count==0){
+            subStringCount++;
+        }
+    }
+
+    return subStringCount;
+}
+
+    
