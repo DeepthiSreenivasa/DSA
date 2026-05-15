@@ -1,0 +1,32 @@
+/**
+ *Strtegy jus check is first and last letters of every iteration is same...create a regex to remove alpha numberic chars 
+ * (/[0-9a-z]/i)
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function (s) {
+
+    let q = "";
+    for (var k = 0; k < s.length; k++) {
+        if (s[k].match(/[0-9a-z]/i)) {
+            q = q + s[k].toLowerCase();
+        }
+    }
+
+    console.log("Q::",q);
+
+    let i=0;
+    let j=q.length-1;
+
+    while(i<j){
+        if(q[i]==q[j]){
+            i++;
+            j--;
+        }else{
+            return false;
+        }
+    }
+
+    return true;
+
+};
