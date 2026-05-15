@@ -1,0 +1,29 @@
+/**
+ * Strategy : in the same iterantion chec if we can identify if its alphan numeric char or not and also efficiently make use of else if ladder
+ * @return {boolean}
+ */
+var isPalindrome = function (s) {
+
+    let i=0;
+    let j = s.length - 1;
+
+    while (i < j) {
+        if (!s[i].match(/[a-z0-9]/i)) {
+            i++;
+        }
+        else if (!s[j].match(/[0-9a-z]/i)) {
+            j--;
+        }
+
+        if (s[i].toLowerCase() == s[j].toLowerCase()) {
+            i++;
+            j--
+        }else{
+            return false;
+        }
+
+    }
+
+    return true;
+
+};
