@@ -1,0 +1,25 @@
+/**
+Strategy : jump from part1 to part2 through 2*k times and in each part swap only k times meaning half the length of k
+**/
+var reverseStr = function (s, k) {
+
+    let swaps = Math.floor(k / 2);
+
+    s = s.split("")
+
+    console.log("S::",s)
+
+    for (var j=0;j<s.length;j=j+(2*k)) {
+        for (var i = 0; i < swaps; i++) {
+            temp = s[i + j];
+            s[i+j] = s[j + (k - 1 - i)];
+            s[j + (k - 1 - i)] = temp;
+        }
+    }
+
+
+    return s.join("");
+
+
+
+};
