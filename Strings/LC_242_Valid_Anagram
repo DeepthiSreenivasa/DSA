@@ -1,0 +1,40 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function (s, t) {
+
+    let x = {};
+
+    let i = 0;
+    let n = s.length;
+    let m = t.length;
+
+    if(s.length != t.length) return false
+
+    while (i < n) {
+        if (x[s[i]]) {
+            x[s[i]]++;
+        } else {
+            x[s[i]] = 1;
+        }
+        i++
+    }
+
+    console.log("new obj", x);
+     i =0;
+
+    while(i<m){
+        if(x[t[i]] && x[t[i]]>0){
+            x[t[i]]--;
+            i++;
+        }else{
+            return false;
+        }
+    }
+
+    console.log("new obj", x);
+    return true;
+
+};
