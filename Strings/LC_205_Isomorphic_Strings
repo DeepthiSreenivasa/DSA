@@ -1,0 +1,35 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isIsomorphic = function (s, t) {
+
+    let m = s.length;
+    let n = t.length;
+    let x = {};
+
+    let i = 0;
+
+    while (i < m) {
+        if (!Object.values(x).includes(t[i])) {
+            x[s[i]] = t[i];
+            
+            console.log("x1::", x)
+        } 
+        i++;
+
+    }
+
+    console.log("x::", x)
+
+    let j = 0;
+    let q = '';
+
+    while (j < n) {
+        q = q + x[s[j]];
+        j++;
+    }
+
+    return q === t;
+};
