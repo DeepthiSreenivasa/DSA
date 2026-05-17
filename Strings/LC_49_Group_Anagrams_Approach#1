@@ -1,0 +1,31 @@
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function (strs) {
+
+    let n = strs.length;
+    let sortedArr = [];
+
+    for (var i = 0; i < n; i++) {
+        sortedArr.push(strs[i].split("").sort().join(""));
+    }
+
+    let m = sortedArr.length;
+    let x = {};
+
+    i = 0;
+    while (i < m) {
+        if (x[sortedArr[i]]) {
+            x[sortedArr[i]].push(strs[i]);
+
+        } else {
+            x[sortedArr[i]] = []
+            x[sortedArr[i]].push(strs[i])
+        }
+        i++;
+    }
+
+    return Object.values(x)
+
+};
