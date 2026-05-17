@@ -1,0 +1,49 @@
+/**
+ * Startegy : create unique keys with alphabets and number of occurence in each alphabet, chatCodeAt() , String.fromCharCode
+ * "a" = 97
+ * @return {string[][]}
+ */
+var groupAnagrams = function (strs) {
+
+    let n = strs.length;
+
+
+
+    let freqArr = [];
+
+    for (var i = 0; i < n; i++) {
+        let x = Array(26).fill(0);
+        for (var j = 0; j < strs[i].length; j++) {
+            let index = strs[i][j].charCodeAt() - 'a'.charCodeAt();
+            x[index]++;
+        }
+        freqArr.push(x);
+    }
+
+
+    i = 0;
+    for (var i = 0; i < freqArr.length; i++) {
+        for (var k = 0; k < 26; k++) {
+            freqArr[i][k] = String.fromCharCode(97 + k) + freqArr[i][k];
+
+        }
+        freqArr[i] = freqArr[i].join("");
+
+    }
+
+
+    i = 0;
+    n = freqArr.length;
+    let x = {}
+    while (i < n) {
+        if (x[freqArr[i]]) {
+           x[freqArr[i]].push(strs[i]);
+            i++;
+        } else {
+            x[freqArr[i]] = [strs[i]];
+            i++
+        }
+    }
+
+    return Object.values(x)
+};
