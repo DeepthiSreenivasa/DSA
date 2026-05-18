@@ -1,0 +1,21 @@
+let q = [1,2,3,4,5,6];
+
+function enQueue(item) {
+    q.push(item);
+    console.log(q);
+}
+
+function deQueue() {
+    q.shift();
+    console.log(q);
+}
+
+function peek() {
+    let firstItemInQueue = q[0];
+    console.log(firstItemInQueue)
+    return firstItemInQueue;
+}
+
+enQueue(7)
+deQueue()
+peek()
