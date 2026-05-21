@@ -1,0 +1,40 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ * Push an element if it is open brace, if it is closed brace check if top stack is its pair, if not paranthesis is not valid
+ */
+var isValid = function (s) {
+
+    let openBraces = ['(', '{', '['];
+
+    let map = {
+        ')':'(',
+        '}':'{',
+        ']':'['
+    }
+
+    let n = s.length;
+    let stack = [];
+
+    for (var i = 0; i < n; i++) {
+        if (openBraces.includes(s[i])) {
+            stack.push(s[i])
+        }
+        else 
+        {
+
+            if(map[s[i]] === stack[stack.length-1]){
+                stack.pop();
+            }else{
+                return false;
+            }
+           
+           
+        }
+    }
+        console.log("Stack::",stack)
+        return stack.length === 0;
+
+
+
+};
