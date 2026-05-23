@@ -1,0 +1,31 @@
+/**
+ * @param {string} s
+ * @return {string}
+ * Strategy : instead of using stack to calculate levels we use a counter called as level
+ */
+var removeOuterParentheses = function (s) {
+
+
+    let level = 0;
+
+    let n = s.length - 1;
+    let ans = "";
+
+    for (var i = 0; i < n; i++) {
+        if (s[i] == '(') {
+            level++;
+            if (level > 1) {
+                ans = ans + s[i]
+            }
+        }
+        else {
+            if (level > 1) {
+                ans = ans + s[i]
+            }
+            level--;
+        }
+    }
+
+    return ans;
+
+};
