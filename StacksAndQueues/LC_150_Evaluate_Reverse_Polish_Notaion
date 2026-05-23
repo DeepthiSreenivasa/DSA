@@ -1,0 +1,52 @@
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ * Strategy use stack .... solve it manually once understand that and then solve it exactly like you solve it manually in the stack....sum top to else
+ * of the stack as soon as you find an operator. Note : Eval usage,Math.trunc usage , Number usage
+ */
+var evalRPN = function (tokens) {
+
+    let stack = [];
+    let n = tokens.length;
+    let ans = 0;
+    let tokensArr = ['+', '-', '*', '/']
+
+
+
+    for (var i = 0; i < n; i++) {
+
+        if (!tokensArr.includes(tokens[i])) {
+            stack.push(Number(tokens[i]))
+        } else {
+            let operand2 = stack.pop();
+            let operand1 = stack.pop();
+
+            console.log((operand1) + tokens[i] + (operand2))
+            switch (tokens[i]) {
+                case "+":
+                    ans = operand1 + operand2;
+                    break;
+
+                case "-":
+                    ans = operand1 - operand2;
+                    break;
+
+                case "*":
+                    ans = operand1 * operand2;
+                    break;
+
+                case "/":
+                    ans = Math.trunc(operand1 / operand2);
+                    break;
+            }
+
+
+            stack.push(ans)
+        }
+
+    }
+    console.log("ans::", stack)
+    return stack[stack.length - 1];
+
+
+};
