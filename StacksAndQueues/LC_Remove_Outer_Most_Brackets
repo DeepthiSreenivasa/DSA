@@ -1,0 +1,42 @@
+/**Startegy
+the outer most brackets always stay at the bottom of the stack, so dont create the string when stack length == 0
+
+**/
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeOuterParentheses = function (s) {
+
+
+    let stack = [];
+    let n = s.length-1 ;
+    let ans = "";
+
+    for (var i = 0; i < n; i++) {
+
+        if (s[i] == "(") {
+            stack.push(s[i])
+            if (stack.length > 1) {
+                console.log("Into m")
+                ans = ans + s[i]
+            }
+        }
+        else {
+            if (stack.length > 1) {
+                ans = ans + s[i]
+            }
+            stack.pop();
+            console.log("stack::", stack)
+        }
+
+
+
+    }
+
+
+
+    return ans;
+
+};
