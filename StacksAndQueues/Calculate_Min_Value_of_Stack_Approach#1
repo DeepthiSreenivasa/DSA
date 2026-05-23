@@ -1,0 +1,75 @@
+/**Strategy : just find the small element in the stack, by regular pop adn later restrore the array, But this leads to o(n), we need to do it in o(1)
+
+
+***/
+var MinStack = function () {
+
+    this.s1 = [];
+    this.s2 = [];
+
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function (val) {
+    this.s1.push(val)
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function () {
+
+    this.s1.pop()
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function () {
+    let n = this.s1.length;
+
+    return this.s1[n - 1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function () {
+
+    let small = Infinity;
+
+    while (this.s1.length > 0) {
+       
+       let top = this.s1[this.s1.length-1];
+
+       if(top < small){
+            small = top
+       }
+
+       this.s2.push(this.s1.pop())
+        
+    }
+
+    let m = this.s2.length;
+
+    for(var i=0;i<m;i++){
+        this.s1.push(this.s2.pop());
+    }
+
+    return small;
+
+
+
+};
+
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
