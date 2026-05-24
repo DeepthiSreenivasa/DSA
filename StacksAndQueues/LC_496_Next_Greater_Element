@@ -1,0 +1,46 @@
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ * Strategy : USe a stack before pushing inside the stack check if the element is greater than the one pushing if not then you have to pop unless u find the greatest ele,
+ * if you still dont find it, jus return -1, also you will push the items into the array from the last
+ */
+var nextGreaterElement = function (nums1, nums2) {
+
+    let stack = [];
+    let map = {};
+    let n = nums2.length - 1
+
+    stack.push(nums2[n]);
+    map[nums2[n]] = -1;
+
+
+    for (var i = n - 1; i >= 0; i--) {
+        let top = stack[stack.length - 1];
+        if (nums2[i] < top) {
+            map[nums2[i]] = top;
+        } else {
+            
+            while (stack.length) {
+                let miniTop = stack[stack.length - 1];
+                if (nums2[i] < miniTop) {
+                    map[nums2[i]] = miniTop
+                    break;
+                }else{
+                    stack.pop()
+                }
+            }
+            if(stack.length == 0)
+            map[nums2[i]] = -1;
+        }
+       stack.push(nums2[i])
+    }
+
+    let ans=[];
+
+    for(var j=0;j<nums1.length;j++){
+        ans.push(map[nums1[j]])
+    }
+
+    return ans;
+}
