@@ -1,0 +1,49 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ * Strategy : instead of duplicating array double the index and run we will meet at the same indices of firsr half n second half
+ * of the array
+ */
+var nextGreaterElements = function(nums) {
+    
+
+    let numsDouble = [...nums,...nums];
+
+    let stack = [];
+    let n = numsDouble.length; 
+    let m = nums.length;
+
+    stack.push(numsDouble[n-1])
+    let output = Array(n).fill(-1);
+    output[n-1]=-1;
+
+    for(var i=(2*n)-2;i>=0;i--){
+
+        let top = stack[stack.length-1];
+        if(numsDouble[i%n]<top){
+            output[i%n]=top
+        }else{
+            while(stack.length){
+                let minTop = stack[stack.length-1];
+
+                if(numsDouble[i]<minTop){
+                   output[i]=minTop
+                    break;
+                }else{
+                    stack.pop()
+                }
+            }
+
+            if(stack.length==0){
+                 output[i]=-1
+            }
+           
+        }
+         stack.push(numsDouble[i%n]);
+    }
+
+    console.log(output);
+
+    return output.slice(0,m);
+
+};
