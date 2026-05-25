@@ -1,0 +1,50 @@
+/**
+ * @param {number[]} temperatures
+ * @return {number[]}
+ * Strategy : use stack "NEXT GREATER TEMPERATURE"
+ */
+var dailyTemperatures = function (temperatures) {
+
+
+    let stack = [];
+    let map = {};
+    let n = temperatures.length;
+    let output = [];
+
+    stack.push({ value: temperatures[n - 1], index: n - 1 });
+    map[temperatures[n - 1]] = { value: temperatures[n - 1], index: 0 };
+    output.push(map[temperatures[n - 1]].index)
+
+    for (var i = n - 2; i >= 0; i--) {
+
+        let top = stack[stack.length - 1]
+
+        if (temperatures[i] < top.value) {
+            map[temperatures[i]] = { value: top.value, index: top.index - i };
+        } else {
+            while (stack.length) {
+
+                let minTop = stack[stack.length - 1]
+                if (temperatures[i] < minTop.value) {
+                    map[temperatures[i]] = { value: minTop.value, index: minTop.index - i };
+                    break;
+                } else {
+                    stack.pop()
+                }
+            }
+            if (stack.length == 0)
+                map[temperatures[i]] = { value: temperatures[n - 1], index: 0 }
+                
+        }
+        stack.push({ value: temperatures[i], index: i });
+        output.push(map[temperatures[i]].index)
+    }
+
+    console.log("map::", map);
+    console.log("map::", output.reverse());
+    
+
+    return output
+
+
+};
