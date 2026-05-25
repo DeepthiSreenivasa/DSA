@@ -1,0 +1,50 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ * Strategy same as Next greater element with stack, but to kill the circular
+ * complextiy jus duplicate the same array again and run next greater element
+ * and in the end splice the output array
+ */
+var nextGreaterElements = function(nums) {
+    
+
+    let numsDouble = [...nums,...nums];
+
+    let stack = [];
+    let n = numsDouble.length; 
+    let m = nums.length;
+
+    stack.push(numsDouble[n-1])
+    let output = Array(n).fill(-1);
+    output[n-1]=-1;
+
+    for(var i=n-2;i>=0;i--){
+
+        let top = stack[stack.length-1];
+        if(numsDouble[i]<top){
+            output[i]=top
+        }else{
+            while(stack.length){
+                let minTop = stack[stack.length-1];
+
+                if(numsDouble[i]<minTop){
+                   output[i]=minTop
+                    break;
+                }else{
+                    stack.pop()
+                }
+            }
+
+            if(stack.length==0){
+                 output[i]=-1
+            }
+           
+        }
+         stack.push(numsDouble[i]);
+    }
+
+    console.log(output);
+
+    return output.slice(0,m);
+
+};
