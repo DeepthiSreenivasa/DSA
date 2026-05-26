@@ -1,0 +1,94 @@
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ * Strategy  - BFS + Queues
+ */
+var orangesRotting = function (grid) {
+
+    let left;
+    let right;
+    let top;
+    let bottom;
+
+    let minutes = 0;
+
+    let q = [];
+    let m = grid.length;
+    let n = grid[0].length;
+
+    findZerothMinRottenOranges();
+    findSpreadingRottenOranges();
+
+    function findAdjacentOranges(x, y) {
+        left = { "x": x - 1, "y": y };
+        right = { "x": x + 1, "y": y };
+        bottom = { "x": x, "y": y + 1 };
+        top = { "x": x, "y": y - 1 };
+    }
+
+    //Setup Initial Q
+    function findZerothMinRottenOranges() {
+        for (var i = 0; i < m; i++) {
+            for (var j = 0; j < n; j++) {
+                if (grid[i][j] == 2) {
+                    q.push({ "x": i, "y": j , "min" : 0 })
+                }
+            }
+        }
+        console.log("QAtTheStartPoint::", q)
+    }
+
+    //SetUpRottingQ
+    function findSpreadingRottenOranges() {
+        while (q.length > 0) {
+
+            findAdjacentOranges(q[0].x, q[0].y);
+          
+            if (left.x >= 0 && left.y >= 0 && left.x < m && left.y < n) {
+                if (grid[left.x][left.y] == 1) {
+                    grid[left.x][left.y] = 2;
+                    q.push({ "x": left.x, "y": left.y ,"min" :q[0].min + 1 });
+                }
+            }
+            if (right.x >= 0 && right.y >= 0 && right.x < m && right.y < n) {
+                if (grid[right.x][right.y] == 1) {
+                    grid[right.x][right.y] = 2;
+                    q.push({ "x": right.x, "y": right.y,"min" : q[0].min + 1 });
+                }
+            }
+            if (top.x >= 0 && top.y >= 0 && top.x < m && top.y < n) {
+                if (grid[top.x][top.y] == 1) {
+                    grid[top.x][top.y] = 2;
+                    q.push({ "x": top.x, "y": top.y ,"min" : q[0].min + 1 });
+                }
+            }
+            if (bottom.x >= 0 && bottom.y >= 0 && bottom.x < m && bottom.y < n) {
+                if (grid[bottom.x][bottom.y] == 1) {
+                    grid[bottom.x][bottom.y] = 2;
+                    q.push({ "x": bottom.x, "y": bottom.y,"min" : q[0].min + 1 })
+                }
+            }
+            minutes = q[0].min;
+            q.shift();
+            console.log("Q-after-spread::",q)
+            
+        }
+    
+        findIfAllRotten()
+    }
+
+    function findIfAllRotten() {
+        
+        for (var i = 0; i < m; i++) {
+            for (var j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    console.log("Grid::",grid);
+                    return -1;
+                }
+            }
+        }
+    }
+
+    return findIfAllRotten()  == -1 ? -1 : minutes;
+
+};
