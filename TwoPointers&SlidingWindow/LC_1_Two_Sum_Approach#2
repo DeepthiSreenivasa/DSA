@@ -1,0 +1,34 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ * Strategy : use a map and find the difference and check if it the difference is present in the map
+ */
+var twoSum = function (nums, target) {
+
+    let n = nums.length;
+    let map = {};
+    let x;
+     
+
+    for (var i = 0; i < n; i++) {
+
+        map[nums[i]] = i
+      
+    }
+
+  console.log("Map::",map)
+
+
+    for(var j=0;j<n;j++){
+
+         x = target - nums[j];
+
+        if(map[x] && j!=map[x]){
+            return [j , map[x]]
+        } 
+
+    }
+
+  
+};
