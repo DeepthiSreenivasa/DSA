@@ -1,0 +1,35 @@
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function (haystack, needle) {
+
+    let m = haystack.length;
+    let n = needle.length;
+    let j = 0;
+    let i = 0;
+
+    while (j <= m) {
+
+        if (i > n || !needle[i]) {
+            return j - i;
+        }
+
+
+        if (needle[i] == haystack[j]) {
+            i++;
+            j++;
+        } else {
+
+            j = j - i + 1
+            i = 0;
+        }
+
+    }
+
+    return -1;
+
+
+
+};
