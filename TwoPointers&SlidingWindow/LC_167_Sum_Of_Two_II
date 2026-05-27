@@ -1,0 +1,28 @@
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ * Startegy : start one pointer from starting the other form ending
+ * what is 1 indexed array ? jus return +1 of indices while returning, it doesnt mean you
+ * should start your i from 1, i starts from 0 and j starts from n-1 itself not n
+ */
+var twoSum = function (numbers, target) {
+
+
+    let n = numbers.length;
+    let i = 0;
+    let j = n-1;
+
+    while(i<j){
+        if(Number(numbers[i] + numbers[j]) > target){
+            console.log("into number")
+            j--;
+        }
+        else if( numbers[i] + numbers[j] < target){
+            i++
+        }else{
+            return [i+1,j+1]
+        }
+    }
+
+};
