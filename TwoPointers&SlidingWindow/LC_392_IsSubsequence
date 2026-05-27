@@ -1,0 +1,28 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function (s, t) {
+
+    let n = t.length;
+    let m = s.length;
+
+    let i = 0;
+    let j = 0;
+    let subStr = ""
+
+    while (j < n ) {
+        if (s[i] != t[j]) {
+
+        } else {
+            subStr = subStr + t[j];
+            i++;
+        }
+        
+        j++;
+    }
+    console.log("subStr::",subStr)
+    return subStr === s;
+
+};
