@@ -1,0 +1,29 @@
+
+/**
+ * @param {number[]} height
+ * @return {number}
+ * Strategy : use the formula to find quantity of water between every two lines and then find the max in it
+ */
+var maxArea = function (height) {
+
+    let n = height.length;
+    let distance;
+    let quantity;
+    let maxQuantity = 0;
+
+
+
+    for (var i = 0; i < n; i++) {
+
+        for (var j = 1; j < n; j++) {
+
+            distance = j - i;
+            quantity = distance * (Math.min(height[i], height[j]))
+
+            maxQuantity = Math.max(maxQuantity, quantity)
+        }
+    }
+
+    return maxQuantity;
+
+};
