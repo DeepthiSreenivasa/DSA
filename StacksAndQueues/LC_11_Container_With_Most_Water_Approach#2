@@ -1,0 +1,30 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ * Strategy : Greedy approach, calculate the quantity of water between two lines and for every iteration move i/j pointer closer 
+ * depending on the smaller height
+ */
+var maxArea = function (height) {
+
+
+    let n = height.length;
+    let i = 0;
+    let j = n - 1;
+    let maxQuantity = (j - i) * Math.min(height[i], height[j]);
+    let quantity;
+    let distance;
+
+    while (i < j) {
+        if (height[i] < height[j]) {
+            i++;
+        } else {
+            j--;
+        }
+
+        distance = j - i;
+        quantity = distance * Math.min(height[i], height[j]);
+        maxQuantity = Math.max(quantity, maxQuantity);
+
+    }
+    return maxQuantity;
+};
