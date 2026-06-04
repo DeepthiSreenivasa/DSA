@@ -1,0 +1,44 @@
+/**
+ * @param {number[]} height
+ * Strategy : for eevry bar on the graph find the heighest bar to the left 
+ * and heighest bar to the right and subtract and blocks in between them
+ * 
+ * @return {number}
+ */
+var trap = function (height) {
+
+    let n = height.length;
+
+    let maxL = [];
+    maxL[0] = height[0]
+
+    for (var i = 1; i < n; i++) {
+        maxL[i] = Math.max(maxL[i - 1], height[i-1])
+    }
+
+
+    let maxR = [];
+    maxR[n - 1] = height[n - 1]
+
+    for (var i = n - 2; i >= 0; i--) {
+        maxR[i] = Math.max(maxR[i + 1], height[i+1])
+    }
+
+    console.log("maxR::", maxR);
+    console.log("maxL::", maxL);
+
+    let waterStored = 0;
+    let totalWaterStored = 0;
+
+    for (var i = 0; i < n; i++) {
+
+        waterStored = Math.min(maxL[i], maxR[i]) - height[i];
+
+        if (waterStored > 0) {
+            totalWaterStored = totalWaterStored + waterStored;
+        }
+    }
+
+   
+    return totalWaterStored;
+};
