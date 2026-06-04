@@ -1,0 +1,32 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function (height) {
+
+
+    let n = height.length;
+    let totalWaterStored = 0;
+    let waterStored = 0;
+    let maxLeft;
+    let maxRight;
+
+
+    for (var i = 1; i < n-1; i++) {
+
+        maxLeft = Math.max(...height.slice(0, i ));
+        maxRight = Math.max(...height.slice(i + 1))
+
+       
+        waterStored = Math.min(maxLeft, maxRight) - height[i];
+        //console.log(height[i], waterStored)
+
+        if (waterStored > 0) {
+            totalWaterStored = totalWaterStored + waterStored
+        }
+    }
+
+    console.log("totalWaterStored::", totalWaterStored)
+
+    return totalWaterStored
+};
