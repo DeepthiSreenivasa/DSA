@@ -1,0 +1,31 @@
+/**
+ * @param {string} s
+ * @return {number}
+ * Strategy : keep a track of index of each character in the map,
+ * and also keep reducing the window size. 
+ * Best example tp dry run : abcdeafbdcgcbb
+ */
+var lengthOfLongestSubstring = function (s) {
+
+    let i = 0;
+    let j = 0;
+    let n = s.length;
+    let map = {};
+    let maxLength = 0;
+    let length = 0;
+
+    while (i < n && j < n) {
+
+        if (map[s[j]] !== undefined && map[s[j]] >= i) {
+            i = map[s[j]] + 1;
+        } 
+        map[s[j]] = j;
+        
+        length=j-i+1
+        j++;
+        maxLength = Math.max(maxLength, length);
+    }
+
+    return maxLength;
+
+};
