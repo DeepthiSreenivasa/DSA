@@ -1,0 +1,13 @@
+let fruitBasket = ["apple", "orange", "apple", "banana", "pineapple", "APPLE"]
+
+function uniqueFruits() {
+
+    let refinedFruitBasket = fruitBasket.map((item) => item.toLowerCase());
+
+    let uniqueFruitBasket = refinedFruitBasket.filter((item, index) => refinedFruitBasket.indexOf(item) == index)
+
+    return uniqueFruitBasket;
+
+}
+
+uniqueFruits();
