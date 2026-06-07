@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ * Fails for larger input as we are find max elemeent with Math.max on every window => soln use a queue
+ */
+var maxSlidingWindow = function(nums, k) {
+
+    let i=0;
+    let j = k;
+    let n = nums.length;
+    let maxEleInSW;
+    let result = [];
+    
+
+    while(j<=n){
+
+        maxEleInSW = Math.max(...nums.slice(i,j));
+        result.push(maxEleInSW)
+        i++;
+        j++;
+    }
+
+    return result;
+
+};
