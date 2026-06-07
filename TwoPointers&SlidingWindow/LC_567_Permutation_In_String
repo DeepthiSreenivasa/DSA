@@ -1,0 +1,44 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ * Strategy build substring and sliding window hash and check ===
+ */
+var checkInclusion = function (s1, s2) {
+
+    let m = s1.length;
+    let n = s2.length;
+
+    let i = 0;
+    let j = m;
+
+
+    while (j <= n) {
+        let subStrHash = buildHash(s1)
+
+        let slidingWindowHash = buildHash(s2.slice(i, j))
+       
+        if (subStrHash == slidingWindowHash) {
+            return true
+        }
+
+        i++;
+        j++;
+    }
+    return false;
+};
+
+function buildHash(string) {
+
+
+    let hash = Array(26).fill(0);
+    let n = string.length;
+
+    for (var k = 0; k < n; k++) {
+        let index = string[k].charCodeAt(0) - 97;
+        hash[index]++;
+    }
+
+    return hash.join("");
+
+}
