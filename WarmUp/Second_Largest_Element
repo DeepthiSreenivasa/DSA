@@ -1,0 +1,21 @@
+class Solution {
+	
+	getSecondLargest(arr) {
+		
+		let big = 0;
+		let sBig = 0;
+		let n = arr.length;
+		
+		for (var i = 0; i<n; i++) {
+			if (arr[i]>big) {
+				sBig = big;
+				big = arr[i];
+			} else if (arr[i]>sBig && arr[i]!=big) { //arr[i]!=big handle duplicates
+				sBig = arr[i]
+			}
+		}
+		
+		return sBig ? sBig : -1;
+		
+	}
+}
