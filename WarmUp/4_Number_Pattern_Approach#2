@@ -1,0 +1,18 @@
+function starPattern() {
+    for (var i = 0; i < 6; i++){
+        let row = "";
+        let toggle = 0;
+        for (var j = 0; j < i + 1; j++){
+            if (toggle == 0) {
+                toggle = 1;
+                row = row + toggle + " "
+            } else {
+                toggle = 0;
+                row = row + toggle + " "
+            }
+        }
+        console.log(row)
+    }
+}
+
+starPattern()
