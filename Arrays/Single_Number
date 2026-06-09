@@ -1,0 +1,36 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ * Create a map and keep track of count of each elements
+ */
+var singleNumber = function (nums) {
+
+    let map = {};
+    let i = 0;
+    let n = nums.length;
+
+    while (i < n) {
+        if (!map[nums[i]]) {
+            map[nums[i]] = 1
+        } else {
+            map[nums[i]]++;
+        }
+        i++;
+    }
+
+    i=0;
+
+    let arr = Object.keys(map);
+    let n1 = arr.length;
+
+    while (i < n1) {
+        if (map[arr[i]]==1){
+            return +arr[i];
+        }
+        i++;
+    }
+
+
+    console.log("Map::", map)
+
+};
