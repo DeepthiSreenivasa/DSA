@@ -1,0 +1,29 @@
+/**
+ * @param {number[]} prices
+ * @return {number}
+ * Strategy : find the min price so far in the iteration, find the max profit you will obtain by traversing
+ */
+var maxProfit = function(prices) {
+
+
+    let i=1;
+    let minPrice = prices[0];
+    let maxProfit = 0;
+    let n = prices.length;
+    let profit = 0;
+    let price = 0;
+
+
+    while(i<n){
+
+        price = prices[i];
+        minPrice = Math.min(price,minPrice);
+        profit = prices[i]-minPrice;
+        maxProfit = Math.max(profit,maxProfit);
+        i++;
+    }
+
+    return maxProfit;
+
+
+};
