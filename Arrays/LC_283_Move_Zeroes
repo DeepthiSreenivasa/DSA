@@ -1,0 +1,29 @@
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ * Strategy : use two pointer and keep moving the values to front
+ */
+var moveZeroes = function (nums) {
+
+
+    let i = 0;
+    let j = 0;
+    let n = nums.length;
+
+
+    while(j<n){
+        if(nums[j]==0){
+           
+        }else{
+            nums[i]=nums[j];
+            i++;
+        }
+        j++;
+    }
+
+    for(var k=i;k<n;k++){
+        nums[k]=0;
+    }
+   
+
+};
