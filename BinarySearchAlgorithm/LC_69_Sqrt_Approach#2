@@ -1,0 +1,34 @@
+/**
+ * @param {number} x
+ * @return {number}
+ * Startegy :  if x is less than 2 then return x as the answer, else if x is greater than 2 then range would 
+ * be from 2......(x/2), if its a whole number then it will definetly be m, if not then it will be r
+ */
+var mySqrt = function (x) {
+
+    if (x < 2) return x;
+
+    let l = 2;
+    let r = Math.floor(x / 2);
+
+
+    while (l <= r) {
+
+        let m = Math.floor((l + r) / 2);
+        console.log("m::", m);
+        let double = m * m;
+
+        if (double == x) {
+            return m;
+
+        } else if (double > x) {
+            r = m - 1
+        }
+        else {
+            l = m + 1;
+        }
+    }
+
+    return r;
+
+};
