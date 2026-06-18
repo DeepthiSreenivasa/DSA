@@ -1,0 +1,30 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ * Logic : You need to observe the graph and you start seeing that there is an pattern in the array which has a sorted sequence. if m + 1  is > m then it is a
+ graph which has an increasing pattern in numbers, and peak stays at the right
+ */
+var findPeakElement = function (nums) {
+
+    let n = nums.length;
+    let l = 0;
+    let r = n - 1;
+
+
+    while (l < r) {
+
+        let m = Math.floor((l + r) / 2);
+
+        if (nums[m] < nums[m + 1]) {
+            //peak is on the right side
+            l = m + 1
+        } else {
+            // peak is on the left side
+            r = m;
+        }
+
+    }
+
+    return r;
+
+};
