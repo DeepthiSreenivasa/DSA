@@ -1,0 +1,37 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ * Logic :  You need to find the min element in the array, but you will never find the min element in the sorted array which means your unsorted array is always your searching sapce
+ Few other corner case : 1.if the array is sorted return the first ele of the array as the least ele
+ 2.If it has only one element in the array then consider =
+ 3.while reducing if you come across a sorted searching space then also return the first element in the searching space
+ */
+var findMin = function (nums) {
+
+    let n = nums.length;
+    let l = 0;
+    let r = n - 1;
+    let m;
+
+    if (nums[l] <= nums[r]) return nums[l];
+
+    while (l <= r) {
+
+        m = Math.floor((l + r) / 2);
+
+        if (nums[l] <= nums[r]) return nums[l];//while reducing if you come across a sorted searching space
+
+        if (nums[m] < nums[m - 1]) return nums[m];//if you find the infelction point the inflection point becomes
+        // your answer
+
+
+        if (nums[l] > nums[m]) { // sorted on left
+            r = m - 1
+        } else {
+            l = m + 1
+        }
+    }
+
+
+
+};
