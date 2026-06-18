@@ -1,0 +1,14 @@
+
+function printNumers(n) {
+
+    if (n<=0) {
+        return;
+    }
+
+    console.log(n);
+    n--;
+    printNumers(n)
+   
+}
+
+printNumers(5)
