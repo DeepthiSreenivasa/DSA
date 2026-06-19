@@ -1,0 +1,48 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ * Logic : Easier Approach - run BS twice once to find the left index, once to find the right index
+ give 3 cases if target is less than m or greater than m or target == m if target == m then become greedy and
+ assign the value to target and make that area as the search space for running Binary
+ */
+var searchRange = function (a, target) {
+
+    let l = 0;
+    let r = a.length - 1;
+
+    let ans = [-1, -1];
+
+
+    while (l <= r) {
+        let m = Math.floor((l + r) / 2)
+        if (target < a[m]) {
+            r = m - 1
+        } else if (target > a[m]) {
+            l = m + 1
+        } else {
+            ans[0] = m;
+            r = m -1 
+        }
+    }
+
+    l = 0;
+    r = a.length - 1;
+
+    while(l <= r) {
+
+        let m = Math.floor((l+r)/2);
+
+        if(target < a[m]){
+            r = m -1;
+        }else if(target > a[m]){
+            l = m + 1;
+        }else{
+            ans[1]=m;
+            l = m + 1
+        }
+
+    }
+
+    return ans
+};
