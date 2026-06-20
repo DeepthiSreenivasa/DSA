@@ -1,0 +1,27 @@
+/**
+ * @param {number[]} arr
+ * @return {number}
+ * Strategy : If you closely observe you will have once side an incresing array from the mid element so based on the middle element you can identify if the next highest element lies on the left or righ side of the mid element
+ and thus defining your search space
+ */
+var peakIndexInMountainArray = function (arr) {
+
+
+    let l = 0;
+    let r = arr.length - 1
+
+
+    while (l < r) {
+
+        let m = Math.floor((l + r) / 2);
+
+        if (arr[m] < arr[m + 1]) {
+            l = m + 1
+        } else {
+            r = m
+        }
+
+    }
+    return r;
+
+};
