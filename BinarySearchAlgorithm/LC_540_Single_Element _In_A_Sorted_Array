@@ -1,0 +1,56 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ * Strategy - Identify the search space by identifying the count of elements on the leftside of the mid or right side of the mid
+ *Pseudo Code :
+  Step 1 : Find the middle element
+  Step 2 : Where is the pair on left side or right side
+        left :
+            where is my odd count of elements in other words whher is my search space
+            left : r = m - 2
+            right : l = m + 1
+        right : 
+            where is my odd count of elements in other words
+            where is my search space
+            left : r = m -1
+            right : l = m + 2
+ */
+var singleNonDuplicate = function (a) {
+
+    let l = 0;
+    let n = a.length;
+    let r = n - 1;
+
+
+
+    while (l <= r) {
+
+        // If the middle element itself is single
+
+        let m = Math.floor((l + r) / 2);
+
+        if (a[m] != a[m + 1] && a[m] != a[m - 1]) {
+            return a[m]
+        }
+
+        //If the pair exists on the left
+        else if (a[m] == a[m - 1]) {
+            //if search space is on left
+            let leftCount = l + ((m - 2) + 1);
+            if (leftCount % 2 == 0) {
+                l = m + 1;
+            } else {
+                r = m - 2;
+            }
+
+        } else {//if pair exists  on right
+            let rightCount = r + ((m + 2) + 1)
+            if (rightCount % 2 == 0) {//if search space exist on right
+                r = m - 1;
+            } else {
+                l = m + 2;
+            }
+        }
+
+    }
+};
