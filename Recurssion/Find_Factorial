@@ -1,3 +1,13 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Base case - Find factorial of the number  upto number is positive,Recursive Case - pass the number to the function 
+ * and by decreasing one number
+ * 
+ */
+
 function findFactorial(n) {
 
 
