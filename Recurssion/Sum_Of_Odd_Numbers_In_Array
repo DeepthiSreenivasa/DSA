@@ -1,0 +1,37 @@
+/*
+ * 
+ * Author: Deepthi S
+ * Notes :
+ * 
+ * Startegy : Base case if first number is odd consider it for addition else consider 0 for addition ; 
+ * Recursive case decrease the number by 1 and add from last number to first number
+ * 
+ */
+const arr = [1, 2, 3, 5, 6, 7]
+
+function sumOfOddNumbersInArray(n) {
+
+
+    let isOdd = arr[n] % 2 != 0;
+
+    if (n == 0) {
+        if (isOdd)
+            return arr[0];
+        else
+            return 0;
+    }
+
+    //return arr[n] + arr[] 
+
+    if (isOdd) {
+        return arr[n] + sumOfOddNumbersInArray(n - 1);
+    } else {
+        return 0 + sumOfOddNumbersInArray(n-1);
+    }
+}
+    const result = sumOfOddNumbersInArray(arr.length - 1);
+
+
+console.log("Result::", result);
+
+
