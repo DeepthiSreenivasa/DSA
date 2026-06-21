@@ -1,0 +1,34 @@
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @param {number} x
+ * @return {number[]}
+ * Strategy : SLIDING WINDOW : Keep the window defined for entire array, either shring on left or right  depending on which 
+ * element is closests to "x" and stop the loop as soon as you realise the window is lesser than expected size k
+ */
+var findClosestElements = function (arr, k, x) {
+
+    let n = arr.length;
+
+    let i = 0;
+    let j = n - 1;
+    let leftDist = 0;
+    let rightDist = 0;
+
+
+    while (j - i + 1 > k) {
+
+        leftDist = Math.abs(arr[i] - x);
+        rightDist = Math.abs(arr[j] - x);
+
+        if (leftDist > rightDist) {
+            i++;
+        } else {
+            j--
+        }
+
+    }
+
+    return arr.slice(i, j+1)
+
+};
