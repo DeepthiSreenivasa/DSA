@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @param {number} x
+ * @return {number[]}
+ * Strategy : Create the range from middle to right, then check the
+ * distance of left element to the x and right element to x. To avoid corner cases I removed Math.abs 
+ */
+
+var findClosestElements = function (arr, k, x) {
+
+    let l = 0;
+    let r = arr.length - 1;
+
+    while (l < r) {
+
+        let m = Math.floor((l + r) / 2);
+
+
+        let leftDistance = x - arr[m];
+        let rightDistance = arr[m + k] - x;
+
+        if (leftDistance > rightDistance) {
+            l = m + 1
+        } else {
+            r = m;
+        }
+    }
+
+    return arr.slice(l,l+k)
+
+
+
+
+};
