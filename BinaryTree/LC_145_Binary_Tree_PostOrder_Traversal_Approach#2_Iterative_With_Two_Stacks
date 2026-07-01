@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * Strategy - Keep one element in the bottom of stack (s1) pop it to s2 move cur to element in the s2 then push s2.left and s2.right to s1 stack
+ you will get answer in reverse order, then pop it out again you will get the answer
+ *Note: Dry run it once you will understand better 
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var postorderTraversal = function (root) {
+
+    if (!root) return [];
+
+    let s1 = [root];
+    let s2 = [];
+    let cur;
+
+    while (s1.length) {
+        cur = s1.pop();
+        s2.push(cur);
+        if (cur.left)
+            s1.push(cur.left);
+        if (cur.right)
+            s1.push(cur.right);
+    }
+
+    let ans = [];
+    while (s2.length) {
+        ans.push(s2.pop().val)
+    }
+    return ans;
+
+};
