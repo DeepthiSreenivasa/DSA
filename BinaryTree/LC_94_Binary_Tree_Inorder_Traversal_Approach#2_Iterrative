@@ -1,0 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+
+ * Strategy: You need to dry run this code a lot to understand, you need a way to understand how the curr pointer moves. Since its an inorder you should also move to the leftest node that is what the first while loop does.
+ Please note : This is not straigt forward unless you dry run to understand
+
+
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function (root) {
+
+
+    let stack = [];
+    let curr = root;
+    let ans = [];
+
+    while (curr || stack.length) {
+        while (curr) {
+            stack.push(curr);
+            curr = curr.left;
+        }
+        curr = stack.pop();
+        ans.push(curr.val)
+        curr = curr.right;
+    }
+
+    return ans;
+};
