@@ -1,0 +1,42 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * Logic jus traverse the node in the order you move manually u end up with pre order code, but when you introduce level it will actually become a dfs
+ Note: ++level and level++ works differently
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function (root) {
+
+    if (!root) return [];
+    let level = 0;
+    let ans = [];
+
+    function traverse(curr, level) {
+
+        if (!curr) return;
+
+        if (!ans[level]) { //On push if [] is not there at all
+            ans[level] = [];
+            ans[level].push(curr.val);
+        } else {
+            ans[level].push(curr.val);
+        }
+
+        traverse(curr.left, ++level);
+        traverse(curr.right, ++level);
+
+    }
+
+
+    traverse(root, level)
+    console.log(ans);
+    return ans;
+
+};
