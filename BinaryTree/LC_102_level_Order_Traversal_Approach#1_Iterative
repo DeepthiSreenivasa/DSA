@@ -1,0 +1,45 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ * Strategy : Use queue - and pop every node from the queue and push nodes left and right child to the queue
+ * Note : additionally we need to calculate levels, to calculate level we need to run for loop for the length of
+ the queue
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function (root) {
+
+    if (!root) return [];
+
+    let q = [root];
+    let ans = [];
+    let levelArr = [];
+    let levelSize;
+
+    while (q.length) {
+        levelArr = [];
+        levelSize = q.length;
+        for (var i = 0; i < levelSize; i++) {
+            cur = q.shift();
+            if (cur.left) {
+                q.push(cur.left);
+            }
+            if (cur.right) {
+                q.push(cur.right);
+            }
+            levelArr.push(cur.val)
+        }
+
+        ans.push(levelArr)
+
+    }
+
+    return ans;
+
+};
