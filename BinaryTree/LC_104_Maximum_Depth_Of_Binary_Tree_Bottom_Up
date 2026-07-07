@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ *  Strategy : return 1 + Math.max(left,right) ... its a bottomUp Approach : understand how it works when you do it manually
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function (root) {
+
+    if (!root) return 0;
+
+    let leftMax = 0;
+    let rightMax = 0;
+
+
+
+    function traverseDepth(curr) {
+
+        if (!curr) return 0;
+
+        if (curr.left) {
+            leftMax = maxDepth(curr.left);
+        }
+        if (curr.right) {
+            rightMax = maxDepth(curr.right);
+        }
+    }
+
+    traverseDepth(root);
+
+    return 1 + Math.max(leftMax , rightMax);
+
+};
