@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ * Strategy : We need to know that for a fact always max Dia will
+ * be distance between two leaf nodes. So in the end we need to find the maxDepth on left side and maxDepth on the rightSide and then
+ Diameter will be leftDepth + rightDepth
+ */
+var diameterOfBinaryTree = function (root) {
+
+    let leftMaxDepth = 0;
+    let rightMaxDepth = 0;
+    let dia = 0;
+    let maxDia = 0;
+
+
+    function calculateDepth(curr) {
+
+        if (!curr) return 0;
+
+        let leftDepth = curr.left && calculateDepth(curr.left);
+        let rightDepth = curr.right && calculateDepth(curr.right);
+
+        dia = leftDepth + rightDepth;
+        maxDia = Math.max(maxDia, dia);
+        return 1 + Math.max(leftDepth, rightDepth);
+
+    }
+
+    calculateDepth(root);
+
+    return maxDia
+
+};
