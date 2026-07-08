@@ -1,0 +1,38 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ *  Strategy : Calculate heights as per the logic in the previous questions, but in the end you have to check if it is
+ balanced so as per the description the formula would be
+  "leftHeight - rightHeight > 1" its not balaced, its balanced only when it is 0 or 1
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isBalanced = function (root) {
+
+    if (!root) return true;
+
+    let ans = true;
+
+    function calculateHeight(cur) {
+
+        if (!cur) return 0;
+
+        let leftHeight = calculateHeight(cur.left);
+        let rightHeight = calculateHeight(cur.right);
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            ans = ans && false;
+        }
+
+        return 1 + Math.max(leftHeight, rightHeight)
+    }
+    calculateHeight(root);
+
+    return ans;
+};
