@@ -1,0 +1,31 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ * Strategy : {
+                A.root = B.root
+                A.root.left = B.root.left
+                B.root.right= A.root.left
+              }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function (root) {
+
+    function isMirror(left, right) {
+
+        if (!left && !right) return true;
+
+        if (!left || !right) return false;
+
+        return left.val === right.val &&
+            isMirror(left.left, right.right) &&
+            isMirror(right.right, left.left)
+    }
+    return isMirror(root.left, root.right);
+};
