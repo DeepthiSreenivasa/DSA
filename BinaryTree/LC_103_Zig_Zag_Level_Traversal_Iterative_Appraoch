@@ -1,0 +1,48 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * Strategy : You need to create a level array and push the values inside the level array also at the same time
+ the level array size becomes equal to length of the queue
+ mainatian the level number to either push or unshift
+ //Adds items to the begining of the array
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var zigzagLevelOrder = function (root) {
+
+    if (!root) return [];
+
+    let q = [root];
+    let ans = [];
+    let level = 0;
+
+    while (q.length) {
+
+        let levelArr = [];
+        let levelSize = q.length;
+
+        for (var i = 0; i < levelSize; i++) {
+            let curr = q.shift();
+
+            if (level % 2 == 0) {
+                levelArr.push(curr.val)
+            } else {
+                levelArr.unshift(curr.val)
+            }
+
+            curr.left && q.push(curr.left);
+            curr.right && q.push(curr.right);
+        }
+        ans.push(levelArr);
+        level++;
+    }
+
+    return ans;
+
+};
