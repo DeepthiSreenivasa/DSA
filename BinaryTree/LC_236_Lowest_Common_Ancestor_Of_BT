@@ -1,0 +1,46 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+ /**
+ Strategy : Bottom Up Approach, we have to traverse from bottom up
+ whenever a node matches the value of p or q immideatly increase the counter and when the counter value reaches 2 for the first time it means that lca was found
+  */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function (root, p, q) {
+
+    let lca = null;
+
+    function traverse(curr) {
+
+        let count = 0;
+
+        if (!curr) return 0;
+
+        let leftCount = traverse(curr.left);
+        let rightCount = traverse(curr.right);
+
+        if (curr.val === p.val || curr.val === q.val) {
+            count++;
+        }
+
+        count = leftCount + rightCount + count;
+
+        if (count == 2 && !lca) {
+            lca = curr
+        }
+        return count;
+    }
+
+    traverse(root);
+    return lca;
+
+};
