@@ -1,0 +1,37 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ *
+ * Strategy : It is a top down approach. Jus keep a track of
+ * max node seen so far
+ * 
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var goodNodes = function (root) {
+
+    let count = 0;
+    let maxSeenSoFar = -Infinity;
+
+    function traverse(curr, maxSeenSoFar) {
+
+        if (!curr) return;
+
+        if (curr.val >= maxSeenSoFar) {
+            count++
+        }
+
+        maxSeenSoFar = Math.max(maxSeenSoFar, curr.val)
+        curr.left && traverse(curr.left, maxSeenSoFar);
+        curr.right && traverse(curr.right, maxSeenSoFar)
+
+    }
+
+    traverse(root, maxSeenSoFar)
+    return count;
+};
