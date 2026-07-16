@@ -1,0 +1,37 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ /**
+ *Strategy : to a BFS from right to left
+ *
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var rightSideView = function (root) {
+
+    if (!root) return [];
+
+    let q = [root];
+    let ans = [];
+
+    while (q.length) {
+        let size = q.length;
+
+        for (var i = 0; i < size; i++) {
+            let curr = q.shift();
+            if (i == 0) {
+                ans.push(curr.val); //Since we push only the first item we see when moving from left to right
+            }
+            curr.right && q.push(curr.right);
+            curr.left && q.push(curr.left);
+        }
+    }
+
+    return ans;
+};
