@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ * Strategy :  Little tuff but if you understand its easy
+ * jus that you have to go from bottom up and keep adding the weights again and again till you reach the top
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxPathSum = function (root) {
+
+    let maxSum = -Infinity;
+
+    function traverse(curr) {
+
+        if (!curr) return 0;
+
+        let leftVal = Math.max(0, traverse(curr.left));
+        //ignoring -ve values
+        let rightVal = Math.max(0, traverse(curr.right));
+        //ignoring -ve values
+
+
+        currSum = curr.val + leftVal + rightVal;
+
+        maxSum = Math.max(maxSum, currSum)
+
+        return curr.val + Math.max(leftVal, rightVal);//returning by comparing left path and right path
+    }
+
+    traverse(root);
+    return maxSum;
+
+};
