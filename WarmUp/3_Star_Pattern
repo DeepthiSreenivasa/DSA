@@ -4,6 +4,8 @@
 //* *
 //*
 
+//Re did on 12th Aug 26
+
 function starPattern() {
     for (var i = 0; i < 5; i++){
         let row = "";
