@@ -6,6 +6,8 @@
 
 //Strategy : build Dashes first then build the stars
 
+//Re did on 12th Aug 26
+
 function starPattern() {
     let n = 5;
     for (var i = 0; i < n; i++){
