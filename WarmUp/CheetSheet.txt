@@ -1,0 +1,13 @@
+Math.abs()=> to conver s a number to positive
+Math.floor,Math.ciel,Math.round
+
+In number patter if you get something like
+1
+01
+0101
+10101
+101010
+You should make use of toggle flag and set 1 and 0 accrodingly
+
+In finding second larget number you will have an if and else if conditions 
+1st condition to assign big to sbig and second condition is to check if an element is grater than sbig(skim the logic once to retain in memory)
