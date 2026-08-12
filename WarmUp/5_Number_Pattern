@@ -1,4 +1,13 @@
-function starPattern() {
+//1
+//0 1
+//0 1 0
+//1 0 1 0
+//1 0 1 0 1
+
+//Re did on 12th Aug 2026
+
+
+function numberPattern() {
     let toggle = 0;
     for (var i = 0; i < 6; i++){
         let row = "";
