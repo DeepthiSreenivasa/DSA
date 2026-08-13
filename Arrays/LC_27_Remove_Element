@@ -3,6 +3,8 @@
  * @param {number} val
  * @return {number}
  */
+//Re-done on 13th Aug
+
 var removeElement = function (nums, val) {
 
 
