@@ -9,25 +9,15 @@ Solved on 14th Aug 2026
 
 var maxProfit = function(prices) {
 
-
-    let i=1;
-    let minPrice = prices[0];
-    let maxProfit = 0;
     let n = prices.length;
-    let profit = 0;
-    let price = 0;
+    let maxProfit = -Infinity;
+    let minPrice = prices[0]
 
-
-    while(i<n){
-
-        price = prices[i];
-        minPrice = Math.min(price,minPrice);
-        profit = prices[i]-minPrice;
-        maxProfit = Math.max(profit,maxProfit);
-        i++;
+    for(var i=1;i<n;i++){
+        minPrice = Math.min(minPrice,prices[i]);
+        maxProfit = Math.max(maxProfit,prices[i]-minPrice) //Profit => SP-CP
     }
 
-    return maxProfit;
-
-
+   
+    return maxProfit <= 0 ? 0 : maxProfit;
 };
