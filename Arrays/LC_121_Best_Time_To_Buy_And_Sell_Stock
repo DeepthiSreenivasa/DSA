@@ -1,8 +1,12 @@
 /**
  * @param {number[]} prices
  * @return {number}
- * Strategy : find the min price so far in the iteration, find the max profit you will obtain by traversing
+ * Strategy : find the min price so far in the iteration, find the max profit you will obtain by traversing. "Logic is 
+ * max Profit will be got only when u sell with min Price"
  */
+
+Solved on 14th Aug 2026
+
 var maxProfit = function(prices) {
 
 
