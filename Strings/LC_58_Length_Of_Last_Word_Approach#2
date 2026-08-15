@@ -1,7 +1,8 @@
 /***
 The space or time complexity doe snot change but there is a differen logic written
+//Strategy : Coutn from backward and if you find a space ignore, but if you find a sapce after the count has increaed return the cound 
 ***/
-
+//Re did on 15th Aug 26
 
 /**
  * @param {string} s
