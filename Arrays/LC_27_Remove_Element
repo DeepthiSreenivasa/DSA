@@ -4,7 +4,7 @@
  * @return {number}
  */
 //Re-done on 13th Aug
-//Re-done on 14th Aug
+//Re-done on 14th Aug, re did on 15th Aug
 
 var removeElement = function (nums, val) {
 
