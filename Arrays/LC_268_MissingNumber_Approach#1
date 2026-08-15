@@ -8,6 +8,8 @@
  * 
  */
 
+//Re did on Aug 15th
+
 function missingNumber(arr) {
 
     const sortedArr = arr.sort();
