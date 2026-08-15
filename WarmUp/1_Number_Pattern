@@ -4,7 +4,7 @@
 //1 2 3 4
 //1 2 3 4 5
 
-//Re did on 12th Aug 2026
+//Re did on 12th Aug 2026,15th Aug
 
 function starPattern() {
     for (var i = 0; i < 5; i++){
