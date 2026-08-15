@@ -1,8 +1,11 @@
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
- * Strategy : use two pointer and keep moving the values to front
+ * Strategy : use two pointer and keep moving the values to front, and find the pointer and start another loop jus to insert zero
  */
+
+//REdid on 15th Aug
+
 var moveZeroes = function (nums) {
 
 
