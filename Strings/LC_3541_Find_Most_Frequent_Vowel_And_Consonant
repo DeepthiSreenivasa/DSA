@@ -2,6 +2,9 @@
  * @param {string} s
  * @return {number}
  */
+
+//Re Done on 15th Aug
+
 var maxFreqSum = function (s) {
 
     let vowels = ['a', 'e', 'i', 'o', 'u'];
