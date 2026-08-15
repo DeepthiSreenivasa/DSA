@@ -5,6 +5,7 @@
  */
 
 //Strategy : Jus loop over each word in the array and see if the asked letter exists in that array
+//Re did on Aug 15th
 
 var findWordsContaining = function(words, x) {
 
