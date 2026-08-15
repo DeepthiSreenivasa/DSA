@@ -1,0 +1,39 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var maxFreqSum = function (s) {
+
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let n = s.length;
+    let obj = {}
+    let count = 0;
+    let maxVowelCount = 0
+    let maxConsonantCount = 0
+
+    for (let i = 0; i < n; i++) {
+
+        if (obj[s[i]]) {
+            obj[s[i]]++
+        } else {
+            obj[s[i]] = 1;
+        }
+
+    }
+
+    let keys = Object.keys(obj);
+
+
+    for (let i = 0; i < keys.length; i++) {
+        if (vowels.includes(keys[i])) {
+            maxVowelCount = Math.max(maxVowelCount, obj[keys[i]])
+        } else {
+            maxConsonantCount = Math.max(maxConsonantCount, obj[keys[i]])
+        }
+    }
+
+
+    return maxVowelCount + maxConsonantCount;
+
+
+};
