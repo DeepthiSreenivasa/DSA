@@ -4,6 +4,7 @@
  * @param {string} t
  * @return {boolean}
  */
+//RE did on 16th Aug
 var isAnagram = function (s, t) {
 
     let x = {};
