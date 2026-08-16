@@ -6,6 +6,8 @@
  * what is 1 indexed array ? jus return +1 of indices while returning, it doesnt mean you
  * should start your i from 1, i starts from 0 and j starts from n-1 itself not n
  */
+
+//Re did on 16th Aug
 var twoSum = function (numbers, target) {
 
 
