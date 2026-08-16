@@ -1,6 +1,8 @@
 /**
-Strategy : jump from part1 to part2 through 2*k times and in each part swap only k times meaning half the length of k
+Strategy : read the question and understand it first. Solution will pitch in automatically
 **/
+//RE did on 15th Aug
+
 var reverseStr = function (s, k) {
 
     let swaps = Math.floor(k / 2);
