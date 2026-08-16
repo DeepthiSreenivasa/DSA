@@ -4,6 +4,8 @@
  * @param {string} s
  * @return {boolean}
  */
+
+//RE did on 16th Aug - need to remember the regex /[0-9a-z]/i
 var isPalindrome = function (s) {
 
     let q = "";
