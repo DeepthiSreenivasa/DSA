@@ -6,7 +6,16 @@
  * }
  */
 
+//Strategy : Find the count of list A
+             Find the count of list B
+             Find the diff bewtween listA and list B
+             if list A is longer move it(A pointer) by diff number of times
+             if list B is longer move it(B pointer) by diff number of times
+             After moving both the pointers now start traversing and find the intersectign node
+
 /**
+//Re did on 17th Aug 2026
+
  * @param {ListNode} headA
  * @param {ListNode} headB
  * @return {ListNode}
