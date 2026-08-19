@@ -5,7 +5,7 @@
  * max Profit will be got only when u sell with min Price"
  */
 
-Solved on 14th Aug 2026,15th Aug
+Solved on 14th Aug 2026,15th Aug,19thAug
 
 var maxProfit = function(prices) {
 
