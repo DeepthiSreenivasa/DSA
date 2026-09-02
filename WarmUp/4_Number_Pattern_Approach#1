@@ -5,7 +5,7 @@
 //1 0 1 0 1
 //1 0 1 0 1 0
 
-//Re-did on Aug 12th , re did on 19th Aug
+//Re-did on Aug 12th , re did on 19th Aug , 2nd Sept
 
 function starPattern() {
     for (var i = 0; i < 6; i++){
