@@ -1,3 +1,9 @@
+//    *
+//   **
+//  ***
+// ****
+//*****
+
 //----*
 //---**
 //--***
@@ -7,7 +13,7 @@
 //Strategy : build Dashes first then build the stars
 
 //Re did on 12th Aug 26
-//Re did on 14th Aug 26,15th Aug
+//Re did on 14th Aug 26,15th Aug, 2nd Sept
 
 function starPattern() {
     let n = 5;
