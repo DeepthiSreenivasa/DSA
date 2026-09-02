@@ -4,7 +4,7 @@
  * Notes :
  * Lin2 25: If else can be jus replaced with this rev == originalNum as end of the day even that would either return true or fasle
  */
-
+//Done on 2nd Sep, if number is an input convert it to String with toString()
 
 var isPalindrome = function(num) {
     
